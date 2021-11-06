@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>575589023321-qhn8dqmp1arl49odjl3v6d7can41vama.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.575589023321-qhn8dqmp1arl49odjl3v6d7can41vama</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>575589023321-6bbv52j8m0aap49oeb6r25dms5a7m67o.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCQZlH9EBCo5tUVyx_oxX7x443oEK0jCb4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>575589023321</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>gg.gaap.gaap</string>
+	<key>PROJECT_ID</key>
+	<string>loger-gaap</string>
+	<key>STORAGE_BUCKET</key>
+	<string>loger-gaap.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:575589023321:ios:8f275cc0ae32af4c95bb48</string>
+	<key>DATABASE_URL</key>
+	<string>https://loger-gaap.firebaseio.com</string>
+</dict>
+</plist>

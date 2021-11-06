@@ -1,0 +1,89 @@
+{
+  "project_info": {
+    "project_number": "575589023321",
+    "firebase_url": "https://loger-gaap.firebaseio.com",
+    "project_id": "loger-gaap",
+    "storage_bucket": "loger-gaap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:575589023321:android:16d7be38ffebf7dd95bb48",
+        "android_client_info": {
+          "package_name": "gg.gaap.gaap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "575589023321-ba38kagf2adevqbg1i88o8eljsq150fu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gg.gaap.gaap",
+            "certificate_hash": "27c75c8f7f71ab38fa7843d30739917351ae81fc"
+          }
+        },
+        {
+          "client_id": "575589023321-6bbv52j8m0aap49oeb6r25dms5a7m67o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gg.gaap.gaap",
+            "certificate_hash": "bd7176ea2aa784dcf6da5519067e495bbb9eebf4"
+          }
+        },
+        {
+          "client_id": "575589023321-q4e41l0l4aaelbphulekjevcduf8l7s2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gg.gaap.gaap",
+            "certificate_hash": "a017af9e307318765a66dfb2b75ed19eca86e30c"
+          }
+        },
+        {
+          "client_id": "575589023321-a1mg619h8o3d3vjgksivhpqlrrgaijdr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gg.gaap.gaap",
+            "certificate_hash": "4ac7c6e8c49ec33c4e2286b5584e79c1ee6f9ca9"
+          }
+        },
+        {
+          "client_id": "575589023321-kjak8gsh03rli2uim7t60s0d8aq7nrtl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gg.gaap.gaap",
+            "certificate_hash": "fc21dd7913e5d709a9d8dfbde6dd8ab2ba26184f"
+          }
+        },
+        {
+          "client_id": "575589023321-sfplpkljsurdfipfjs676invja76rcqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gg.gaap.gaap",
+            "certificate_hash": "9fc18d759d4d1ad22da7f940898bb7d475c32a88"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Lv_naXvzh3TwtPNxP37whbdLTUqZTLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "575589023321-rquh6svslrq54gm7n2b31u5qltu7lv6o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "234",
+                "app_store_id": "234"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-6984881740253042~6620787740"
+    }
+  ],
+  "configuration_version": "1"
+}

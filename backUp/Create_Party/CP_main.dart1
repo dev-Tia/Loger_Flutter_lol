@@ -1,0 +1,279 @@
+import 'package:flutter/material.dart';
+import 'package:grouped_checkbox/grouped_checkbox.dart';
+import 'package:gaap/chat/summoner/chat_screen.dart';
+import 'package:gaap/chat/room/roomList.dart';
+
+
+class CPmain extends StatefulWidget {
+  @override
+  _CPmainState createState() => _CPmainState();
+}
+    
+class _CPmainState extends State<CPmain> {
+  
+  String dropdownType = "듀오";
+  String dropdownRank = "아이언";
+  String dropdownRank2 = "첼린저";
+  
+  List<String> allItemList = ['탑신병자','백정','황족','평타싸개','도구'];
+  static List<String> checkedItemList = [];
+  List<String> selectedItemList = checkedItemList ?? [];
+
+  @override
+    Widget build(BuildContext context) {
+      return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Color.fromRGBO(18 , 34, 47, 1),
+        body: Center(
+          child: Column(
+            children:[
+              //방제적기//
+              Container(
+                width: (MediaQuery.of(context).size.width).round()/1.5,
+                height: (MediaQuery.of(context).size.height).round()/10.5,              
+                margin: EdgeInsets.fromLTRB(
+                  (MediaQuery.of(context).size.width).round()/10,
+                  (MediaQuery.of(context).size.height).round()/12,
+                  (MediaQuery.of(context).size.width).round()/10,
+                  (MediaQuery.of(context).size.height).round()/30,
+                ),
+                
+                child: TextField(
+                  decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 3,
+                        color: Colors.cyan[800],
+                      ),
+                    ),
+                    hintText: '방 만들때만 방제 적기',
+                    hintStyle: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                    autofocus: false,
+                ),
+              ),
+              //방제적기//
+
+              //타입고르기//
+              Container(
+                width: (MediaQuery.of(context).size.width).round()/2,
+                height: (MediaQuery.of(context).size.height).round()/15,  
+                margin: EdgeInsets.fromLTRB(
+                  (MediaQuery.of(context).size.width).round()/6,
+                  0,
+                  (MediaQuery.of(context).size.width).round()/1.5,
+                  0,
+                ),
+                child: DropdownButton<String>(
+                  value: dropdownType,
+                  onChanged: (String newValue) {
+                    setState(() {
+                      dropdownType = newValue;
+                    });
+                  },
+                  items: <String>['듀오', '자유', '일반'
+                  ].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value,
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      
+                    );
+                  }).toList(),
+                ),
+              ),
+              //타입고르기//
+
+              //랭크 고르기//              
+              Row(
+                children:[
+                  
+                  Container(
+                    width: (MediaQuery.of(context).size.width).round()/3.5,
+                    height: (MediaQuery.of(context).size.height).round()/15,  
+                    margin: EdgeInsets.fromLTRB(
+                      (MediaQuery.of(context).size.width).round()/6,
+                      (MediaQuery.of(context).size.height).round()/35,
+                      (MediaQuery.of(context).size.width).round()/20,
+                      0,
+
+                    ),
+                    child: DropdownButton<String>(
+                      value: dropdownRank,
+                      onChanged: (String newValue) {
+                        setState(() {
+                          dropdownRank = newValue;
+                        });
+                      },
+                      items: <String>['아이언', '브론즈', '실버', '골드', '플레티넘', '다이아', '마스터', '그랜드마스터',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.white,
+                            ),
+                          )
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                
+                  Container(
+                    width: (MediaQuery.of(context).size.width).round()/3.5,
+                    height: (MediaQuery.of(context).size.height).round()/15,  
+                    margin: EdgeInsets.fromLTRB(
+                      (MediaQuery.of(context).size.width).round()/20,
+                      (MediaQuery.of(context).size.height).round()/35,
+                      (MediaQuery.of(context).size.width).round()/10.5,
+                      0,
+                    ),
+                    child: DropdownButton<String>(
+                      value: dropdownRank2,
+                      onChanged: (String newValue) {
+                        setState(() {
+                          dropdownRank2 = newValue;
+                        });
+                      },
+                      items: <String>['브론즈', '실버', '골드', '플레티넘', '다이아', '마스터', '그랜드마스터','첼린저'
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              color: Colors.white,
+                            ),
+                          )
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ]
+              ),
+              //랭크 고르기// 
+
+              //포지션 선택//
+              Padding(
+                
+                padding: const EdgeInsets.fromLTRB(
+                  0,30,0,20,
+                  ),
+                child: Text('포지션 선택',
+                  style: TextStyle(
+                    color: Colors.white, 
+                    fontSize: 10.0
+                  ),
+                ),
+              ),
+              
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.cyan[200],
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))
+                ),
+                width: (MediaQuery.of(context).size.width).round()/1.3,
+                height: (MediaQuery.of(context).size.height).round()/5.5,  
+                margin: EdgeInsets.fromLTRB(
+                  0,
+                  0,
+                  0,
+                  0,
+                ),
+              
+                
+                  child: GroupedCheckbox(
+                    
+                    wrapSpacing: 3.0,
+                    wrapRunSpacing: 0.0,
+                    wrapTextDirection: TextDirection.ltr,
+                    wrapRunAlignment: WrapAlignment.center,
+                    wrapVerticalDirection: VerticalDirection.down,
+                    wrapAlignment: WrapAlignment.start,
+                    itemList: allItemList,
+                    checkedItemList: checkedItemList,
+                    onChanged: (itemList) {
+                      setState(() {
+                        selectedItemList = itemList;
+                      });
+                    },
+
+                  orientation: CheckboxOrientation.WRAP,
+                  
+                  checkColor: Colors.purpleAccent,
+                  activeColor: Colors.cyan[200],
+                  
+                  textStyle: TextStyle(
+                    color: Colors.white,
+                  ),
+              ),
+                
+            ),
+            //포지션 선택//
+
+            //설정 확인//
+            Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    
+                    Container(
+                      width: (MediaQuery.of(context).size.width).round()/3,
+                      height: (MediaQuery.of(context).size.height).round()/13,  
+                      margin: EdgeInsets.fromLTRB(
+                        (MediaQuery.of(context).size.width).round()/8,
+                        (MediaQuery.of(context).size.height).round()/20, 
+                        (MediaQuery.of(context).size.width).round()/50,
+                        (MediaQuery.of(context).size.height).round()/20, 
+                      ),
+                      child: RaisedButton(
+                        child: Text('검색'),
+                        onPressed: () {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => RoomList()),
+                          );
+                        },
+                      ),
+                    ),
+
+                    Container(
+                      width: (MediaQuery.of(context).size.width).round()/3,
+                      height: (MediaQuery.of(context).size.height).round()/13,  
+                      margin: EdgeInsets.fromLTRB(
+                        (MediaQuery.of(context).size.width).round()/18,
+                        (MediaQuery.of(context).size.height).round()/20, 
+                        (MediaQuery.of(context).size.width).round()/50,
+                        (MediaQuery.of(context).size.height).round()/20, 
+                      ),
+                      child: RaisedButton(
+                        child: Text('만들기'),
+                        onPressed: () {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => ChatScreen()),
+                          );
+                        },
+                      ),
+                    ),
+
+                  ]
+                ),
+              ]
+            ),
+            //설정 확인//
+            ]
+          ),
+        ),
+      ),
+    );
+  }
+}

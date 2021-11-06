@@ -1,0 +1,242 @@
+import 'package:flutter/material.dart';
+import 'package:grouped_checkbox/grouped_checkbox.dart';
+import 'package:gaap/chat/room/roomList.dart';
+
+
+class SRmain extends StatefulWidget {
+  @override
+  _SRmainState createState() => _SRmainState();
+}
+    
+class _SRmainState extends State<SRmain> {
+  
+  String dropdownType = "듀오";
+  String dropdownRank = "아이언";
+  String dropdownRank2 = "첼린저";
+  
+  List<String> allItemList = ['탑신병자','백정','황족','평타싸개','도구'];
+  static List<String> checkedItemList = [];
+  List<String> selectedItemList = checkedItemList ?? [];
+
+  @override
+    Widget build(BuildContext context) {
+      return MaterialApp(
+      home: Scaffold(
+         backgroundColor: Color.fromRGBO(242 , 242, 242, 1),
+        body: Center(
+          child: Column(
+            children:[
+              
+              //타입고르기//
+              Container(
+                width: (MediaQuery.of(context).size.width).round()/2,
+                height: (MediaQuery.of(context).size.height).round()/10,  
+                margin: EdgeInsets.fromLTRB(
+                  (MediaQuery.of(context).size.width).round()/6,
+                  (MediaQuery.of(context).size.height).round()/10,
+                  (MediaQuery.of(context).size.width).round()/1.5,
+                  0,
+                ),
+                child: DropdownButton<String>(
+                  value: dropdownType,
+                  onChanged: (String newValue) {
+                    setState(() {
+                      dropdownType = newValue;
+                    });
+                  },
+                  items: <String>['듀오', '자유', '일반'
+                  ].map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value,
+                        style: TextStyle(
+                          fontSize: 14.0,
+                        ),
+                      ),
+                      
+                    );
+                  }).toList(),
+                ),
+              ),
+              //타입고르기//
+
+              //랭크 고르기//              
+              Row(
+                children:[
+                  
+                  Container(
+                    width: (MediaQuery.of(context).size.width).round()/3.5,
+                    height: (MediaQuery.of(context).size.height).round()/15,  
+                    margin: EdgeInsets.fromLTRB(
+                      (MediaQuery.of(context).size.width).round()/6,
+                      (MediaQuery.of(context).size.height).round()/35,
+                      (MediaQuery.of(context).size.width).round()/20,
+                      0,
+
+                    ),
+                    child: DropdownButton<String>(
+                      value: dropdownRank,
+                      onChanged: (String newValue) {
+                        setState(() {
+                          dropdownRank = newValue;
+                        });
+                      },
+                      items: <String>['아이언', '브론즈', '실버', '골드', '플레티넘', '다이아', '마스터', '그랜드마스터',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                            ),
+                          )
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                
+                  Container(
+                    width: (MediaQuery.of(context).size.width).round()/3.5,
+                    height: (MediaQuery.of(context).size.height).round()/15,  
+                    margin: EdgeInsets.fromLTRB(
+                      (MediaQuery.of(context).size.width).round()/20,
+                      (MediaQuery.of(context).size.height).round()/35,
+                      (MediaQuery.of(context).size.width).round()/10.5,
+                      0,
+                    ),
+                    child: DropdownButton<String>(
+                      value: dropdownRank2,
+                      onChanged: (String newValue) {
+                        setState(() {
+                          dropdownRank2 = newValue;
+                        });
+                      },
+                      items: <String>['브론즈', '실버', '골드', '플레티넘', '다이아', '마스터', '그랜드마스터','첼린저'
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                            ),
+                          )
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ]
+              ),
+              //랭크 고르기// 
+
+              //포지션 선택//
+              Padding(
+                
+                padding: const EdgeInsets.fromLTRB(
+                  0,40,0,20,
+                  ),
+                child: Text('포지션 선택',
+                  style: TextStyle(
+                    fontSize: 16.0
+                  ),
+                ),
+              ),
+              
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.cyan[200],
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0))
+                ),
+                width: (MediaQuery.of(context).size.width).round()/1.3,
+                height: (MediaQuery.of(context).size.height).round()/5.5,  
+                margin: EdgeInsets.fromLTRB(
+                  0,
+                  0,
+                  0,
+                  0,
+                ),
+              
+                
+                  child: GroupedCheckbox(
+                    
+                    wrapSpacing: 3.0,
+                    wrapRunSpacing: 0.0,
+                    wrapTextDirection: TextDirection.ltr,
+                    wrapRunAlignment: WrapAlignment.center,
+                    wrapVerticalDirection: VerticalDirection.down,
+                    wrapAlignment: WrapAlignment.start,
+                    itemList: allItemList,
+                    checkedItemList: checkedItemList,
+                    onChanged: (itemList) {
+                      setState(() {
+                        selectedItemList = itemList;
+                      });
+                    },
+
+                  orientation: CheckboxOrientation.WRAP,
+                  
+                  checkColor: Colors.purpleAccent,
+                  activeColor: Colors.cyan[200],
+                  
+                  textStyle: TextStyle(
+                  ),
+              ),
+                
+            ),
+            //포지션 선택//
+
+            //설정 확인//
+            Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    
+                    Container(
+                      width: (MediaQuery.of(context).size.width).round()/3,
+                      height: (MediaQuery.of(context).size.height).round()/13,  
+                      margin: EdgeInsets.fromLTRB(
+                        (MediaQuery.of(context).size.width).round()/8,
+                        (MediaQuery.of(context).size.height).round()/10, 
+                        (MediaQuery.of(context).size.width).round()/50,
+                        (MediaQuery.of(context).size.height).round()/20, 
+                      ),
+                      child: RaisedButton(
+                        child: Text('취소'),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ),
+
+                    Container(
+                      width: (MediaQuery.of(context).size.width).round()/3,
+                      height: (MediaQuery.of(context).size.height).round()/13,  
+                      margin: EdgeInsets.fromLTRB(
+                        (MediaQuery.of(context).size.width).round()/18,
+                        (MediaQuery.of(context).size.height).round()/10, 
+                        (MediaQuery.of(context).size.width).round()/50,
+                        (MediaQuery.of(context).size.height).round()/20, 
+                      ),
+                      child: RaisedButton(
+                        child: Text('만들기'),
+                        onPressed: () {
+                          Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => RoomList()),
+                          );
+                        },
+                      ),
+                    ),
+
+                  ]
+                ),
+              ]
+            ),
+            //설정 확인//
+            ]
+          ),
+        ),
+      ),
+    );
+  }
+}

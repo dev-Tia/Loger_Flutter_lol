@@ -1,0 +1,30 @@
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:gaap/Create_Party/CP_List.dart';
+
+
+class ChatTemp extends StatefulWidget {
+  @override
+  _ChatTempState createState() => _ChatTempState();
+}
+
+class _ChatTempState extends State<ChatTemp> {
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Container(
+        child: InkWell(
+          child: Image.asset('images/etc/chat_temp.png'
+            ),
+          onTap: () {
+            Navigator.push(context,
+              MaterialPageRoute(
+                builder: (context) => CPlist()
+              ),
+            );
+          }
+        ),
+      ),  
+    );
+  }
+}

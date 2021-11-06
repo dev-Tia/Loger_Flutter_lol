@@ -1,0 +1,30 @@
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:gaap/backUp/Search_Room/SR_List.dart';
+
+
+class SRChatTemp extends StatefulWidget {
+  @override
+  _SRChatState createState() => _SRChatState();
+}
+
+class _SRChatState extends State<SRChatTemp> {
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      child: Container(
+        child: InkWell(
+          child: Image.asset('images/etc/chat_temp.png'
+            ),
+          onTap: () {
+            Navigator.push(context,
+              MaterialPageRoute(
+                builder: (context) => SRlist()
+              ),
+            );
+          }
+        ),
+      ),  
+    );
+  }
+}

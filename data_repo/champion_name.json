@@ -1,0 +1,26 @@
+[
+    {  "name":"Aatrox",
+        "num": 0,
+        "name-ko": "아트록스"
+    },
+    {   "name":"Ahri",
+        "num": 1,
+        "name-ko": "아리"
+    },
+    {   "name":"Akali",
+        "num": 2,
+        "name-ko": "아카리"
+    },
+    {   "name":"Alistar",
+        "num": 3,
+        "name-ko": "알리스타"
+    },
+    {   "name":"Amumu",
+        "num": 4,
+        "name-ko": "아무무"
+    },
+    {   "name":"Anivia",
+        "num": 5,
+        "name-ko": "애니비아"
+    }
+]

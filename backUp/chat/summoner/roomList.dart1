@@ -1,0 +1,89 @@
+import 'package:flutter/material.dart';
+import 'package:gaap/multi_type_list_view.dart';
+import 'package:gaap/chat/room/chat.dart';
+import 'package:gaap/chat/room/input_block.dart';
+import 'package:provider/provider.dart';
+import 'room_data.dart';
+import 'roomList_builder.dart';
+
+class RoomList extends StatefulWidget {
+  @override
+  _RoomListState createState() => _RoomListState();
+}
+
+class _RoomListState extends State<RoomList> {
+  var items = [];
+  ScrollController controller = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _initData().then((list){
+      setState(() {
+        items = list;
+      });
+    });
+  }
+
+  Future<List> _initData() async{
+    var messages = Message.getMessages();
+    // var bannerItems = BannerItem.getBannerItems();
+    return [
+      '광고뷰',
+      ...messages.sublist(5),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var onMessageTap = (context, item, index){
+      Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(
+              create: (_) => InputState(),
+            )
+          ],
+          child:Chat(
+            friendName: item.summoner, 
+            friendAvatar: item.profile,
+          )
+        );
+      }));
+    };
+    return Scaffold(
+      body: MultiTypeListView(
+        items: items,
+        widgetBuilders: [
+          TitleItemBuilder(),
+          GroupMessageItemBuilder(
+            controller: controller, 
+            onItemTap: onMessageTap
+          ),
+          MessageBuilder(onMessageTap),
+        ],
+        showDebugPlaceHolder: true,
+        widgetWrapper: (widget, item, index) {
+          return Container(
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.grey[200], 
+                  width: 1
+                ),
+              ),
+            ),
+            child: widget,
+          );
+        },       
+        controller: controller,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller?.dispose();
+  }
+}

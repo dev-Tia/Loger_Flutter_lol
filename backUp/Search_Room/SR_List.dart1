@@ -1,0 +1,205 @@
+import 'package:flutter/material.dart';
+import 'package:gaap/Create_Party/CP_Chat.dart';
+
+class SRlist extends StatefulWidget {
+  @override
+  _SRlistState createState() => _SRlistState();
+}
+
+class _SRlistState extends State<SRlist> {  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('사람 리스트'),
+      ),
+      
+      body: ListView.builder(
+        padding: const EdgeInsets.all(20),
+        itemBuilder: (context, i) {
+          return Container(
+            height: (MediaQuery.of(context).size.height).round()/6,
+            child: Card(
+              elevation: 50,
+              child: Row(
+                children: <Widget>[                 
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      (MediaQuery.of(context).size.width).round()/40, 
+                      4.0, 
+                      (MediaQuery.of(context).size.width).round()/30, 
+                      0.0
+                    ),
+                    child: Container(
+                        width: (MediaQuery.of(context).size.width).round()/7.0,
+                        height: (MediaQuery.of(context).size.height).round()/10.3,
+                        margin: EdgeInsets.fromLTRB(
+                          (MediaQuery.of(context).size.width).round()/40, 
+                          0,
+                          (MediaQuery.of(context).size.width).round()/100,
+                          0
+                        ),
+                        decoration: BoxDecoration(
+                          // color: Colors.white70,
+                          image: DecorationImage(
+                            image: AssetImage('images/etc/E_Diamond.png'),
+                            fit: BoxFit.cover
+                          ),
+                          borderRadius:
+                            BorderRadius.all(Radius.circular(25.0)
+                            ),
+                          // boxShadow: [
+                          //   BoxShadow(blurRadius: 50.0, color: Colors.black87)
+                          // ]                          
+                        ),
+                      ),
+                    ),
+                  
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     return showDialog<void>(
+                  //       context: context,
+                  //         barrierDismissible: false,
+                  //         builder: (BuildContext conext) {
+                  //           return AlertDialog(
+                  //             title: Text('소환사이름'),
+                  //             content:const Text('초대 하시겠습니까?'),
+                  //             actions: <Widget>[
+                  //               FlatButton(
+                  //                 child: Text('초대'),
+                  //                 onPressed: () {
+                  //                   Navigator.push(
+                  //                     context, MaterialPageRoute(
+                  //                       builder: (context) => ChatTemp()
+                  //                     ),
+                  //                   );
+                  //                 },
+                  //               ),
+                  //               FlatButton(
+                  //                 child: Text('취소'),
+                  //                 onPressed: () {
+                  //                   Navigator.of(context).pop();
+                  //                 },
+                  //               ),
+                  //             ],
+                  //           );
+                  //         },
+                  //     );
+                  //   },
+                  // ),
+                    
+                  Container(
+                    child: Column(
+                      children: <Widget>[
+                        Container(                                                     
+                          padding: EdgeInsets.fromLTRB(
+                            (MediaQuery.of(context).size.width).round()/20.3,
+                            (MediaQuery.of(context).size.height).round()/25.3,
+                            (MediaQuery.of(context).size.width).round()/5.3,
+                            (MediaQuery.of(context).size.height).round()/50.3,
+                          ),
+                          child:Text('왼손은 흑염룡',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        ),
+                        
+                        Container(
+                          width:(MediaQuery.of(context).size.width).round()/3.3,
+                          height:(MediaQuery.of(context).size.height).round()/20.3,
+                          padding: EdgeInsets.fromLTRB(
+                          (MediaQuery.of(context).size.width).round()/50.3,
+                          0,
+                          (MediaQuery.of(context).size.width).round()/9.3,
+                          0
+                          ),
+                          child: Text('승률 : 50%',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 12),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  
+                  Column(                   
+                    children: <Widget>[                      
+                      Container(
+                        width:(MediaQuery.of(context).size.width).round()/50.3,
+                        height:(MediaQuery.of(context).size.height).round()/15.3,
+                        padding: EdgeInsets.fromLTRB(
+                         (MediaQuery.of(context).size.width).round()/50.3,
+                         0,
+                         (MediaQuery.of(context).size.width).round()/10.3,
+                         0
+                        ),
+                        child: Text('KDA',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(fontSize: 11),
+                        ),
+                      ),
+                                           
+                      Container(
+                        width:(MediaQuery.of(context).size.width).round()/12,
+                        height:(MediaQuery.of(context).size.height).round()/13.3,
+                        padding: EdgeInsets.fromLTRB(
+                          (MediaQuery.of(context).size.width).round()/50.3,
+                          0,
+                          (MediaQuery.of(context).size.width).round()/50.3,
+                          0
+                        ),
+                        child: FilterChip(
+                          label: Text('초대하기',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 11),
+                          ),
+                          shadowColor: Colors.blue,
+                          backgroundColor: Colors.transparent,
+                          shape: StadiumBorder(
+                            side: BorderSide()
+                          ),
+                          elevation: 10,
+                          autofocus: true, 
+                          onSelected: (bool value) {
+                            return showDialog<void>(
+                              context: context,
+                                barrierDismissible: false,
+                                builder: (BuildContext conext) {
+                                  return AlertDialog(
+                                    title: Text('소환사이름'),
+                                    content:const Text('초대 하시겠습니까?'),
+                                    actions: <Widget>[
+                                      FlatButton(
+                                        child: Text('초대'),
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context, MaterialPageRoute(
+                                              builder: (context) => ChatTemp()
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                      FlatButton(
+                                        child: Text('취소'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                            );
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
